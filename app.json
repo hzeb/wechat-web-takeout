@@ -7,7 +7,7 @@
   "window":{
     "backgroundColor":"#f4f4f4",
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "orange",
+    "navigationBarBackgroundColor": "#1e90ff",
     "navigationBarTitleText": "美食汇微菜单",
     "navigationBarTextStyle":"white"
   }
