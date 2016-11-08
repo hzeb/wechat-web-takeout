@@ -58,6 +58,8 @@ image {
 	float: left;
 	padding: 1rem;
 	background: rgba(0,0,0,0.6);
+
+	
 }
 .cart .payoff{
 	float: right;
