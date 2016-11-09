@@ -13,7 +13,7 @@
 
     <!-- 分类导航 -->
   <view class="nav-block wrap">
-    <block wx:for="{{navItems}}"> 
+    <block wx:for="{{navItems}}" wx:key="url"> 
       <view class="wrap-item {{item.isSplot ? 'exp' : ''}}">  
         <navigator url="../components/{{item.url}}/{{item.url}}" hover-class="navigator-hover">{{item.name}}</navigator>
       </view>
