@@ -9,13 +9,13 @@
 	<!-- content -->
 	<view class="content flex-item">
 		<block wx:for="{{goodsList[curIndex].GoodsList}}" wx:key="Goods.Guid">
-			<view class="dish flex-wrap flex-direction-row" catchtap="selectDish" data-dish="{{item.Goods.Guid}}" data-price="{{item.Goods.Price}}" data-dish-index="{{index}}">
+			<view class="dish flex-wrap flex-direction-row" bindtap="viewDetail" data-dish="{{item.Goods.Guid}}" data-dish-index="{{index}}">
 				<image style="width: 50px; height: 50px;" src="{{item.Images[0].ImagePath}}"></image>
 				<view class="flex-item">
 					<text class="title">{{item.Goods.GoodsName}}</text>
-					<text class="price">￥{{item.Goods.Price}}</text>
+					<text class="price">￥{{item.Goods.Price || 0}}</text>
 				</view>
-				<view class="add-btn"><icon type="{{item.status ? 'success' : 'circle'}}" color="#1e90ff" size="30"></icon></view>
+				<view class="add-btn" catchtap="selectDish" data-dish="{{item.Goods.Guid}}" data-price="{{item.Goods.Price}}" data-dish-index="{{index}}"><icon type="{{item.status ? 'success' : 'circle'}}" color="#1e90ff" size="30"></icon></view>
 			</view>
 		</block>
 

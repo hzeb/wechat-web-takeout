@@ -1,3 +1,4 @@
+var virtualData = require('../../../utils/virtualData.js');
 var app = getApp()
 Page({
     data: {
@@ -6,67 +7,6 @@ Page({
         curIndex: 0,
         cart: [],
         cartTotal: 0,
-        navList: [{
-            id: 1,
-            name: '热销菜品'
-        }, {
-            id: 2,
-            name: '热菜'
-        }, {
-            id: 3,
-            name: '凉菜'
-        }, {
-            id: 4,
-            name: '套餐'
-        }],
-        dishesList: [
-            [{
-                name: "鸡翅",
-                price: 38,
-                num: 1,
-                id: 1,
-                img: '/Images/jichi.png'
-            }, {
-                name: "生蚝",
-                price: 58,
-                num: 1,
-                id: 29,
-                img: '/Images/shenghao.png'
-            }, {
-                name: "热狗",
-                price: 88,
-                num: 1,
-                id: 2,
-                img: '/Images/regou.png'
-            }],
-            [{
-                name: "小龙虾",
-                price: 18,
-                num: 1,
-                id: 3,
-                img: '/Images/xiaolongxia.png'
-            }, {
-                name: "烤鱼",
-                price: 58,
-                num: 1,
-                id: 4,
-                img: '/Images/shenghao.png'
-            }],
-            [{
-                name: "韭菜",
-                price: 18,
-                num: 1,
-                id: 5,
-                img: '/Images/jiucai.png'
-            }, {
-                name: "牛肉串",
-                price: 8,
-                num: 1,
-                id: 6,
-                img: '/Images/niurouchuan.png'
-            }],
-            []
-        ],
         dishes: [],
         goodsList: [],
     },
@@ -134,7 +74,7 @@ Page({
     getAllGoods() {
     	self = this;
         wx.request({
-            url: 'http://waimaiapi.tunnel.qydev.com/Home/GetGoodsList', //仅为示例，并非真实的接口地址
+            url: 'http://waimaiapi.tunnel.qydev.com/Home/GetGoodsList', 
             header: {
                 'Content-Type': 'application/json'
             },
@@ -151,9 +91,24 @@ Page({
             fail: function(error){
                 console.log(error);
                 self.setData({
+                		goodsList: virtualData.goodsList
+            		});
+                self.setData({
                 	hidden: true
             	});            	
             }
         })
+    },
+    //跳转到商品详情页
+    viewDetail(event) {
+    	let dish = event.currentTarget.dataset.dish;
+        let index = ~~event.currentTarget.dataset.dishIndex;
+    	wx.navigateTo({
+      		url: 'detail?dishId='+dish+'&typeIndex='+this.data.curIndex+'&dishIndex='+index,
+      		fail: function(error){
+      			console.log(error);
+      		}
+
+    	})
     }
 })

@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/components/dishes/dishes",
+    "pages/components/dishes/detail",
     "pages/components/take/take"
   ],
   "window":{

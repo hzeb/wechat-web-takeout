@@ -1,4 +1,8 @@
 /**index.wxss**/
+.my-swiper swiper{
+	margin-top: 10px;
+	height: 200px;
+}
 .my-swiper image{
   width: 100%;
 }

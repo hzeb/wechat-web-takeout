@@ -24,20 +24,20 @@ Page({
       },
       {
         name:'外带',
-        url:'out'
+        url:'take'
       },
       {
         name:'订单',
-        url:'bill'
+        url:'take'
       },
       {
         name:'帐单',
-        url:'bill',
+        url:'take',
         isSplot:true
       },
       {
         name:'报表',
-        url:'bill'
+        url:'take'
       }
     ]
   },
